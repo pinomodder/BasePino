@@ -170,14 +170,6 @@ pinojs.sendMessage(pinokece.chat, { delete: { remoteJid: pinokece.chat, fromMe: 
 pinojs.sendMessage(pinokece.chat, { delete: { remoteJid: pinokece.chat, fromMe: false, id: pinokece.id, participant: "0️" } }),
 pinojs.sendMessage(pinokece.chat, { delete: { remoteJid: pinokece.chat, fromMe: false, id: pinokece.id, participant: "0️" } }) }
 
-//Auto Antilink
-if (budy.match("https://chat.whatsapp.com/")) {
-if (isDev && pinokece.key.fromMe && isAdmins) return
-let linkgc = await pinojs.groupInviteCode(pinokece.chat)
-if (budy.includes(`${linkgc}`)) return 
-pinojs.groupParticipantsUpdate(pinokece.chat, [pinokece.sender], 'remove')
-        }
-        
 ppuser = 'https://raw.githubusercontent.com/pinomodder/image/main/thumbnail.jpg'
 ppnyauser = await reSize(ppuser, 200, 200)
 
@@ -841,25 +833,6 @@ case 'openai':
           }
           break
           
-case 'antilink': {
-if (!isGroupAdmins) return sticAdmin(from)
-                if (args[0] === "on") {
-                if (global.db.chats[ pinokece.chat].antilink) return  pinokece.reply(`Sudah Aktif Sebelumnya`)
-                global.db.chats[ pinokece.chat].antilink = true
-                 pinokece.reply(`Antilink Aktif !`)
-                } else if (args[0] === "off") {
-                if (!global.db.chats[ pinokece.chat].antilink) return  pinokece.reply(`Sudah Tidak Aktif Sebelumnya`)
-                global.db.chats[ pinokece.chat].antilink = false
-                 pinokece.reply(`Antilink Tidak Aktif !`)
-                } else {
-                 let buttons = [
-                        { buttonId: 'antilink on', buttonText: { displayText: 'On' }, type: 1 },
-                        { buttonId: 'antilink off', buttonText: { displayText: 'Off' }, type: 1 }
-                    ]
-                    await  pinojs.sendButtonText( pinokece.chat, buttons, `Mode Antilink`,  pinojs.user.name,  pinokece)
-                }
-             }
-             break
 
 case 'restart':{
 if (!isGroup) return pinokece.reply(`wajib dalam grup`)
@@ -1175,7 +1148,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0] 
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1217,7 +1190,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0] 
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1259,7 +1232,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0] 
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1301,7 +1274,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0] 
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1343,7 +1316,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0] 
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1385,7 +1358,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0] 
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1430,7 +1403,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1475,7 +1448,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1520,7 +1493,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1562,7 +1535,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0] 
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1604,7 +1577,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1646,7 +1619,7 @@ const froms = pinokece.quoted ? pinokece.quoted.sender : q.replace(/[^0-9]/g, ''
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1692,7 +1665,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1737,7 +1710,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1781,7 +1754,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1825,7 +1798,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1870,7 +1843,7 @@ if (cekno.length == 0) return pinokece.reply(`Peserta tersebut sudah tidak terda
   var targetnya = froms.split('@')[0]
   var axioss = require ("axios")
   let ntah = await axioss.get("https://www.whatsapp.com/contact/noclient/")
-let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=2022")
+let email = await axioss.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=10")
 let cookie = ntah.headers["set-cookie"].join("; ")
 let $ = cheerio.load(ntah.data)
 let $form = $("form");
@@ -1915,12 +1888,11 @@ if (args[0].startsWith(`+${setting.nomorDeveloper}`)) return pinokece.reply(`Tid
 axios.post('https://magneto.api.halodoc.com/api/v1/users/authentication/otp/requests',{'phone_number':`${q}`,'channel': 'voice'},{headers: {'authority': 'magneto.api.halodoc.com','accept-language': 'id,en;q=0.9,en-GB;q=0.8,en-US;q=0.7','cookie': '_gcl_au=1.1.1860823839.1661903409; _ga=GA1.2.508329863.1661903409; afUserId=52293775-f4c9-4ce2-9002-5137c5a1ed24-p; XSRF-TOKEN=12D59ACD8AA0B88A7ACE05BB574FAF8955D23DBA28E8EE54F30BCB106413A89C1752BA30DC063940ED30A599C055CC810636; _gid=GA1.2.798137486.1664887110; ab.storage.deviceId.1cc23a4b-a089-4f67-acbf-d4683ecd0ae7=%7B%22g%22%3A%2218bb4559-2170-9c14-ddcd-2dc80d13c3e3%22%2C%22c%22%3A1656491802961%2C%22l%22%3A1664887110254%7D; amp_394863=nZm2vDUbDAvSia6NQPaGum...1gehg2efd.1gehg3c19.f.0.f; ab.storage.sessionId.1cc23a4b-a089-4f67-acbf-d4683ecd0ae7=%7B%22g%22%3A%22f1b09ad8-a7d9-16f3-eb99-a97ba52677d2%22%2C%22e%22%3A1664888940400%2C%22c%22%3A1664887110252%2C%22l%22%3A1664887140400%7D','origin': 'https://www.halodoc.com','sec-ch-ua': '"Microsoft Edge";v="105", "Not)A;Brand";v="8", "Chromium";v="105"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'empty','sec-fetch-mode': 'cors','sec-fetch-site': 'same-site','user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.53','x-xsrf-token': '12D59ACD8AA0B88A7ACE05BB574FAF8955D23DBA28E8EE54F30BCB106413A89C1752BA30DC063940ED30A599C055CC810636'}}).then(function (response) {pinokece.reply(`${JSON.stringify(response.data, null, 2)}`)}).catch(function (error) {pinokece.reply(`${JSON.stringify(error, null, 2)}`)})
 break
 
- /* case "peranggc":
+  case "peranggc":
   case "wargc":
   case "buggc":
   case "otwgc":
   case "santetgc":{
-   if (!isDev) return pinokece.reply(`Pt² dulu kata Developer Bot`)
 if (!isGroupAdmins) return pinokece.reply(`Hanya Admin Yang Bisa Menggunakan Fitur Ini`)
 pinokece.reply(`SUKSES SEND BUG`)
 if (!q) return pinokece.reply(`Penggunaan ${prefix+command} link`)
@@ -2788,7 +2760,7 @@ templateButtons: [
 { quoted: lep }
 ]})
 }}
-break*/
+break
 
 case 'button':
 if (!itsMe && !isDev) return pinokece.reply(mess.owner)
